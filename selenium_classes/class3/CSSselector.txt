@@ -1,0 +1,51 @@
+
+const{Builder, By} = require("selenium-webdriver");
+var driver = getDriver();
+
+function getDriver() {
+    return new Builder().forBrowser('chrome').build();
+}
+
+function launchBrowser() {
+    driver.manage().window().maximize();
+    driver.get("https://www.next.co.uk/secure/account/login");
+}
+/**
+ * className USING CSS
+ */
+function enterPassword() {
+    driver.findElement(By.css('input.password')).sendKeys('password');
+}
+
+/**
+ * id
+ */
+function enteremail() {
+    driver.findElement(By.css('input#EmailOrAccountNumber')).sendKeys("sample@gmail.com");
+}
+/**
+ * attribute
+ */
+function enterPasswordAtt() {
+    driver.findElement(By.css("input[name=Password]")).sendKeys('password');
+}
+/**
+ * class, tag and attribute
+ */
+function enterPasswordAtt() {
+    driver.findElement(By.css('input.password[name=Password]')).sendKeys('password');
+}
+
+function clearPassword() {
+    driver.findElement(By.css('input.password[name=Password]')).clear();
+}
+function callMethod() {
+    launchBrowser();
+    enteremail();
+    // enterPassword();
+    // enterPasswordAtt();
+    enterPasswordAtt();
+    clearPassword();
+}
+
+callMethod();

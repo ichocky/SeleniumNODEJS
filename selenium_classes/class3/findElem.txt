@@ -1,0 +1,30 @@
+
+const{Builder, By} = require("selenium-webdriver");
+var driver = getDriver();
+
+function getDriver() {
+    return new Builder().forBrowser('chrome').build();
+}
+
+function launchBrowser() {
+    driver.manage().window().maximize();
+    driver.get("http://demo.guru99.com/test/ajax.html");
+}
+
+function findElementsExcer() {
+  driver.findElements(By.name('name')).then(
+      function(elements) {
+          elements.forEach(
+              function(ele) {
+                  ele.click();
+              }
+          )
+      }
+  )
+}
+
+function callMethod() {
+    launchBrowser();
+    findElementsExcer();
+}
+callMethod();

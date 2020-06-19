@@ -1,0 +1,29 @@
+
+const{Builder, By} = require("selenium-webdriver");
+var driver = getDriver();
+
+function getDriver() {
+    return new Builder().forBrowser('chrome').build();
+}
+
+function launchBrowser() {
+    driver.manage().window().maximize();
+    driver.get("http://demo.guru99.com/test/link.html");
+}
+
+function scrollToBottom() {
+    driver.executeScript("window.scrollTo(0,document.body.scrollHeight)")
+}
+
+function ClickOnDownload() {
+    // driver.findElement(By.linkText('click here')).click();
+    driver.findElement(By.partialLinkText('here')).click();
+}
+
+function callMethod() {
+    launchBrowser();
+    // scrollToBottom();
+    ClickOnDownload();
+}
+
+callMethod();

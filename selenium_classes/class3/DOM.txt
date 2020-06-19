@@ -1,0 +1,28 @@
+
+const{Builder, By} = require("selenium-webdriver");
+var driver = getDriver();
+
+function getDriver() {
+    return new Builder().forBrowser('chrome').build();
+}
+
+function launchBrowser() {
+    driver.manage().window().maximize();
+    driver.get("http://demo.guru99.com/test/facebook.html");
+}
+
+function checkBoxToggle() {
+    driver.executeScript("document.getElementById('persist_box').click();");
+}
+
+function enterEmailAddress() {
+    driver.executeScript("document.getElementsByName('email')[0].value='sample@gmail.com'");
+}
+
+function callMethod() {
+    launchBrowser();
+    enterEmailAddress();
+    checkBoxToggle();
+}
+
+callMethod();

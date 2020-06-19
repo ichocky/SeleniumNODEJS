@@ -1,0 +1,18 @@
+const{Builder} = require("selenium-webdriver");
+var driver = getDriver();
+
+function getDriver() {
+    return new Builder().forBrowser('chrome').build();
+}
+
+function launchBrowser() {
+    driver.manage().window().maximize();
+    driver.get("http://www.google.com");
+}
+
+function callMethod() {
+    launchBrowser();
+}
+
+
+callMethod();

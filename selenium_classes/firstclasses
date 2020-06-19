@@ -1,0 +1,27 @@
+
+const{Builder, By} = require("selenium-webdriver");
+var driver = getDriver();
+
+function getDriver() {
+    return new Builder().forBrowser('chrome').build();
+}
+
+function launchBrowser() {
+    driver.manage().window().maximize();
+    driver.get("https://www.techlistic.com/p/selenium-practice-form.html");
+}
+function learnMoreAccept() {
+    driver.findElement(By.id('cookieChoiceDismiss')).click();
+}
+function enterFirstName(){
+    // driver.findElement(By.name('firstname')).sendKeys('FirstName');
+    driver.findElement(By.name('profession')).click();
+}
+
+function callMethod() {
+    launchBrowser();
+    learnMoreAccept();
+    enterFirstName();
+}
+
+callMethod();

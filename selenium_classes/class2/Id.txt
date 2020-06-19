@@ -1,0 +1,29 @@
+
+const{Builder, By} = require("selenium-webdriver");
+var driver = getDriver();
+
+function getDriver() {
+    return new Builder().forBrowser('chrome').build();
+}
+
+function launchBrowser() {
+    driver.manage().window().maximize();
+    driver.get("https://www.techlistic.com/p/selenium-practice-form.html");
+}
+
+function enterDate() {
+    // driver.findElement(By.id('datepicker')).sendKeys('10/10/2020');
+    driver.findElement(By.id('sex-0')).click();
+}
+
+function scrollToBottom() {
+    driver.executeScript("window.scrollTo(0,document.body.scrollHeight)")
+}
+
+function callMethod() {
+    launchBrowser();
+    scrollToBottom();
+    enterDate();
+}
+
+callMethod();

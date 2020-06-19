@@ -1,0 +1,28 @@
+
+const{Builder, By, Capabilities} = require("selenium-webdriver");
+var chrome = require('selenium-webdriver/chrome');
+var webDriver = require("selenium-webdriver")
+var driver = getDriver();
+
+function getDriver() {
+    var cap = webDriver.Capabilities.chrome();
+    var chromOption = {w3c:false};
+    cap.set('chromeOptions', chromOption);
+    return new Builder().withCapabilities(cap).build();
+}
+
+function launchBrowser() {
+    driver.manage().window().maximize();
+    driver.get("http://demo.guru99.com/test/login.html");
+}
+
+function submitValue() {
+    driver.findElement(By.id('SubmitLogin')).submit();
+}
+
+function callMethod() {
+    launchBrowser();
+    submitValue();
+}
+
+callMethod();
